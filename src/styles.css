@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+.content {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 10px;
+  box-sizing: border-box;
+  background-color: #fff4f4;
+
+  @media (min-width: 600px) {
+    max-width: 600px;
+  }
+  @media (min-width: 768px) {
+    max-width: 720px; /*tablet*/
+  }
+  @media (min-width: 1024px) {
+    max-width: 960px; /*mały desktop*/
+  }
+}
