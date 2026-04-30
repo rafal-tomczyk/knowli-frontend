@@ -25,6 +25,13 @@ export class Graph {
   functionObject = input.required<FunctionObject>();
   private chartRef = viewChild<ElementRef<HTMLCanvasElement>>('chart');
   private chart: Chart | null = null;
+  primaryColor = getComputedStyle(document.documentElement)
+    .getPropertyValue('--color-primary')
+    .trim();
+
+  secondaryColor = getComputedStyle(document.documentElement)
+    .getPropertyValue('--color-secondary')
+    .trim();
 
   constructor() {
     effect(() => {
@@ -110,8 +117,8 @@ export class Graph {
           {
             data: points,
             showLine: false,
-            pointRadius: 6,
-            pointBackgroundColor: '#10B981',
+            pointRadius: 8,
+            pointBackgroundColor: this.primaryColor,
             datalabels: {
               align: (ctx) => {
                 const point = ctx.dataset.data[ctx.dataIndex] as { x: number; y: number };
@@ -139,7 +146,8 @@ export class Graph {
           },
           {
             data,
-            borderColor: '#3B82F6',
+            borderColor: this.secondaryColor,
+            borderWidth: 5,
             pointRadius: 0,
             datalabels: {
               display: false
@@ -149,11 +157,15 @@ export class Graph {
       },
       options: {
         animation: false,
+        font: {
+          family: "'Inter', system-ui, Arial, sans-serif"
+        },
         plugins: {
           legend: { display: false },
           title: {
             display: true,
-            text: this.functionObject().content.forms.general
+            text: this.functionObject().content.forms.general.replace('^2', '²'),
+            font: { family: "'Manrope', system-ui, Arial, sans-serif", size: 16 }
           }
         },
         aspectRatio: 1,
@@ -167,7 +179,8 @@ export class Graph {
               callback: val => Number.isInteger(val) ? val : ''
             },
             grid: {
-              color: ctx => ctx.tick.value === 0 ? '#757780' : '#ddd'
+              color: ctx => ctx.tick.value === 0 ? '#757780' : '#ddd',
+              lineWidth: ctx => ctx.tick.value === 0 ? 2 : 1
             }
           },
           y: {
@@ -178,7 +191,8 @@ export class Graph {
               callback: val => Number.isInteger(val) ? val : ''
             },
             grid: {
-              color: ctx => ctx.tick.value === 0 ? '#757780' : '#ddd'
+              color: ctx => ctx.tick.value === 0 ? '#757780' : '#ddd',
+              lineWidth: ctx => ctx.tick.value === 0 ? 2 : 1
             }
           }
         }
