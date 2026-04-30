@@ -137,8 +137,9 @@ export class Graph {
                 const p = ctx.dataset.data[ctx.dataIndex] as any;
                 return `(${p.x}, ${p.y})`;
               },
+              offset: 12,
               color: 'black',
-              font: { size: 10 },
+              font: { size: 12 },
               backgroundColor: 'rgba(255,255,255,0.8)',
               borderRadius: 4,
               padding: 4,

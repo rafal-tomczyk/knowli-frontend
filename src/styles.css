@@ -3,7 +3,7 @@
   --color-secondary: #3B82F6;
   --color-tertiary: #64748B;
   --color-neutral: #F8FAFC;
-  --color-background: #EFF0FA;
+  --color-background: #EFF1F3;
   --color-background-light: #FFFFFF;
 
   --font-heading: 'Manrope', system-ui, Arial, sans-serif;
@@ -26,6 +26,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0 10px;
   box-sizing: border-box;
   background-color: var(--color-background-light);
+  border-radius: 24px;
 
   @media (min-width: 600px) {
     max-width: 600px;
