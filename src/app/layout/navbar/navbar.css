@@ -3,5 +3,5 @@
 }
 
 .navbar {
-  background-color: #ce34f3;
+  background-color: var(--color-neutral);
 }
