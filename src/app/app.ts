@@ -1,13 +1,12 @@
 import { Component, inject } from '@angular/core';
-import {Graph} from './graph/graph';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {FunctionObject} from './graph/graph.types';
 import {toSignal} from '@angular/core/rxjs-interop';
-import {Navbar} from './layout/navbar/navbar';
+import {RouterOutlet} from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [Graph, Navbar],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

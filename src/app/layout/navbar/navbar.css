@@ -4,4 +4,57 @@
 
 .navbar {
   background-color: var(--color-neutral);
+  width: 100%;
+  min-height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-menu {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.menu-btn {
+  display: none;
+}
+
+.links {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.links.open {
+  max-height: 200px;
+}
+
+@media (max-width: 680px) {
+  .navbar-menu {
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 2rem;
+  }
+
+  .links {
+    display: none;
+    flex-direction: column;
+    top: 4rem;
+    left: 0;
+    right: 0;
+
+    background: var(--color-neutral);
+    padding: 16px;
+  }
+
+  .links.open {
+    display: flex;
+  }
+
+  .menu-btn {
+    display: block;
+  }
 }

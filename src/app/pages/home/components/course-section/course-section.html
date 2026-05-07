@@ -1,0 +1,8 @@
+<section class="course-section">
+  <h2>{{ title() }}</h2>
+  <ul>
+    @for (item of items(); track item) {
+      <li><a href="">{{ item }}</a></li>
+    }
+  </ul>
+</section>

@@ -1,10 +1,1 @@
-<main>
-  <app-navbar />
-  <div class="content">
-    @if (functionObject(); as data){
-      <app-graph [functionObject]="data"></app-graph>
-    } @else {
-      <p>No function object available</p>
-    }
-  </div>
-</main>
+<router-outlet/>
